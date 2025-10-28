@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body onload="loadDashboard()">
+    <!-- navbar  -->
+    <header class=" z-50 sticky top-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 shadow-md">
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between gap-4">
+                <div class="flex-1 md:flex md:items-center md:gap-12">
+                    <a class="block" href="#">
+                        <span class="sr-only">Home</span>
+                        <img class="h-22" src="./assets/image/logo-evan-web.png" alt="Logo" />
+                    </a>
+                </div>
+
+                <div class="items-center justify-center flex gap-2">
+                    <div class="cricle red"></div>
+                    <div class="cricle green"></div>
+                    <div class="cricle blue "></div>
+                    <div class="cricle black"></div>
+                    <button onclick="risetBg()" class="reset" type="button">Reset</button>
+                </div>
+
+                <div class="md:flex md:items-center md:gap-12">
+                    <nav aria-label="Global" class="hidden md:block">
+                        <ul class="flex items-center gap-6 text-sm">
+                            <li>
+                                <a class="text-white transition hover:text-gray-200" href="about.html">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-200" href="kontak.html">
+                                    kontak
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div id="mobileMenu"
+                        class="fixed inset-y-0 left-0 w-64 text-white bg-indigo-600 shadow-md transform -translate-x-full transition-transform duration-300 md:hidden">
+                        <nav class="px-20 py-4 flex flex-col h-full">
+                            <ul class="space-y-4 text-lg">
+                                <li><a href="index.html" class="block hover:text-gray-200">Home</a></li>
+                                <li><a href="about.html" class="block hover:text-gray-200">About</a></li>
+                                <li><a href="kontak.html" class="block hover:text-gray-200">kontak</a></li>
+                            </ul>
+                            <div class="mt-auto">
+                                <button
+                                    class="rounded-md bg-white text-indigo-700 px-5 py-2.5 text-sm font-medium shadow-sm hover:bg-gray-100 transition"
+                                    onclick="logout()">logout</button>
+                            </div>
+
+                        </nav>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex">
+                            <a class="rounded-md bg-white text-indigo-700 px-5 py-2.5 text-sm font-medium shadow-sm hover:bg-gray-100 transition"
+                                onclick="logout()">
+                                logout
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="block md:hidden">
+                        <button id="menubtn" class="rounded-sm bg-white/20 p-2 text-white hover:bg-white/30 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- navbar end -->
+
+    <!-- content 1 -->
+    <div class="div-bor h-screen flex flex-col justify-center items-center gap-5 text-center">
+        <div class="text-4xl font-extrabold dark:text-white" id="welcome"></div>
+        <div class="dark:text-white font-extrabold">
+            <p>di website ini kamu bisa menemukan berbagai fitur fitur yang menyenangkan</p>
+        </div>
+        <div class="vidio-container">
+            <video id="vidioComponent" class="border border-gray-200 rounded-lg dark:border-gray-700">
+                <source src="./assets/video/vidio-ricrol.mp4" type="video/mp4">
+            </video>
+            <div class="vidio-component">
+                <button class="btn btn-play" onclick="playVidio()">PLAY</button>
+                <button class="btn btn-pause" onclick="pauseVidio()">PAUSE</button>
+                <button class="btn btn-minimize" onclick="minimizeVidio()">MINIMIZE</button>
+                <button class="btn btn-zoom" onclick="zoomInVidio()">ZOOM IN</button>
+            </div>
+        </div>
+    </div>
+    <!-- content 1 end -->
+    <!-- content 2  -->
+    <div id="content2" class="div-bor h-screen flex flex-col text-wrap items-center ">
+        <div class="mt-8 py-4 grid gap-10 sm:grid-cols-1 md:grid-cols-2">
+            <!-- card 1 -->
+            <div
+                class="card1 bg-white text-gray-900 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg p-6 sm:p-8  justify-center items-center flex flex-col gap-4 overflow-hidden transition hover:scale-110 hover:shadow-xl">CEK UMUR ANDA</h2>
+                <label>
+                    <span class="text-sm font-medium text-gray-700">masukan tahun lahir anda</span>
+
+                    <input type="date" id="tanggalLahir" class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
+                </label>
+                <a class="inline-block rounded-sm border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:ring-3 focus:outline-hidden"
+                    type="button" id="cekUmurBtn">
+                    Cek umur
+                </a>
+                <div id="hasilUmur" class="w-70 h-20 bg-gray-100 text-center flex justify-center items-center"></div>
+            </div>
+            <!-- card 2 -->
+            <div class="card2 bg-white text-gray-900 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg p-6 sm:p-8  justify-center items-center flex flex-col gap-4 overflow-hidden transition hover:scale-110 hover:shadow-xl">
+                <h2 class="text-lg font-medium text-gray-900">Generate password</h2>
+                <label>
+                    <span class="text-sm font-medium text-gray-700">masukkan panjang password</span>
+
+                    <input id="panjangPw" type="number"  class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
+                </label>
+                <input disabled type="text" id="hasilPw" class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
+                <a class="inline-block rounded-sm border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:ring-3 focus:outline-hidden"
+                   type="button" id="generatePassword">
+                    Generate password
+                </a>
+                <a class="inline-block rounded-sm border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:ring-3 focus:outline-hidden"
+                   id="saveBtn">
+                    Save password
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!-- content 2 end -->
+
+    <!-- content 3  -->
+    <div class="h-screen div-bor text-wrap flex justify-center items-center">
+        <h1>MASIH PROSES TUNGGU UNTUK HAL MENARIK SELANJUTNYA</h1>
+    </div>
+     <!-- content  3 end  -->
+
+    <script src="./js/dashboard.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+
+</html>

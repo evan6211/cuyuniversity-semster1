@@ -1,0 +1,90 @@
+.cricle{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    cursor: pointer;
+}
+
+body{
+    background-color: #8B5CF6;
+    transition:all 0.5s ease-in-out;
+}
+
+.red{
+    background-color:#C026D3;
+}
+
+.green{
+    background-color:#0D9488;
+}
+
+.blue{
+    background-color:rgb(76, 76, 222);
+}
+
+.black{
+    background-color:#333333;
+}
+
+.reset{
+    background-color: #8B5CF6;
+    width: 60px;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.riset:hover{
+    background-color: #7d55da;
+     transition:all 0.5s ease-in-out;
+     font-size:18px;
+}
+
+.vidio-container{
+    position:relative;
+}
+
+.vidio-component{
+    position:absolute;
+    bottom:0px;
+}
+
+.btn{
+    border:none;
+    border-radius:5px;
+    padding:8px;
+    cursor:pointer;
+    font-weight: 500;
+    font-size:14px;
+    margin:5px;
+}
+
+.btn-play{
+    background-color:crimson;
+    color:white;
+}
+
+.btn-pause{
+    background-color:lavender;
+    color:black;
+}
+
+.btn-minimize{
+    background-color:black;
+    color:white;
+}
+
+.btn-zoom{
+    background-color: darkslategray;
+    color:white;
+}
+
+.btn:hover{
+    opacity:0.8;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+};

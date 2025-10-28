@@ -1,0 +1,18 @@
+{
+  "name": "gabungan-sesi",
+  "version": "1.0.0",
+  "description": "ini gabungan dari sesi cuy university semster 1",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sesi",
+    "gabungan"
+  ],
+  "author": "evan",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.18"
+  }
+}
