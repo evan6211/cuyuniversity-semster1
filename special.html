@@ -1,11 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>special</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun Rajwa</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background: linear-gradient(135deg, #ff9ccf, #ffd6e0);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        text-align: center;
+    }
+    #welcome {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.2rem;
+        color: #fff;
+        text-shadow: 1px 1px 5px #ff69b4;
+        opacity: 0;
+        transition: all 2s ease;
+    }
+    #gameContainer {
+        display: none;
+        margin-top: 20px;
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff1f5;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .player {
+        width: 40px;
+        height: 40px;
+        background: #ff69b4;
+        position: absolute;
+        bottom: 10px;
+        left: 130px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .ball {
+        width: 20px;
+        height: 20px;
+        background: #ff1493;
+        position: absolute;
+        top: 0;
+        border-radius: 50%;
+    }
+    #messageContainer {
+        display: none;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        max-width: 400px;
+        margin: auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 2s, transform 2s;
+    }
+    #typedMessage {
+        font-size: 1.2rem;
+        color: #ff1493;
+        min-height: 120px;
+        white-space: pre-wrap;
+    }
+    #gifContainer img {
+        width: 120px;
+        margin-top: 10px;
+        animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-15px); }
+    }
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background: #ff69b4;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
-    
+
+<div id="welcome">Selamat datang, Rajwa! Main game dulu yuk 🎉</div>
+
+<div id="gameContainer">
+    <div class="player" id="player"></div>
+</div>
+
+<div id="messageContainer">
+    <div id="beforeMessage" style="font-size:1.5rem; color:#ff1493; margin-bottom:10px;">Yahh game-nya udah habis, ada pesan buat kamu nih 🎁</div>
+    <button id="showMessageBtn">Lihat Pesan</button>
+    <div class="card" id="card">
+        <div id="typedMessage"></div>
+        <div id="gifContainer">
+            <img src="assets/image/special.gif" alt="GIF Lucu">
+        </div>
+        <button id="logoutBtn" style="display:none;">Logout</button>
+    </div>
+</div>
+
+<script>
+    const welcome = document.getElementById('welcome');
+    const gameContainer = document.getElementById('gameContainer');
+    const player = document.getElementById('player');
+    const messageContainer = document.getElementById('messageContainer');
+    const showMessageBtn = document.getElementById('showMessageBtn');
+    const card = document.getElementById('card');
+    const typedMessage = document.getElementById('typedMessage');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Animasi welcome
+    setTimeout(() => {
+        welcome.style.opacity = 1;
+    }, 500);
+
+    setTimeout(() => {
+        welcome.style.top = '20%';
+    }, 3000); // geser ke atas
+
+    setTimeout(() => {
+        // tampilkan game
+        gameContainer.style.display = 'block';
+        welcome.style.display = 'none';
+
+        let playerPos = 130;
+        let playerX = 130;
+
+        document.addEventListener('keydown', e => {
+            if(e.key === 'ArrowLeft' && playerPos > 0) playerPos -= 10;
+            if(e.key === 'ArrowRight' && playerPos < 260) playerPos += 10;
+            player.style.left = playerPos + 'px';
+        });
+
+        player.addEventListener('mousemove', e => {
+            const rect = gameContainer.getBoundingClientRect();
+            let x = e.clientX - rect.left - 20;
+            if(x < 0) x = 0;
+            if(x > 260) x = 260;
+            player.style.left = x + 'px';
+        });
+
+        // Game bola jatuh
+        let balls = [];
+        const spawnBall = setInterval(() => {
+            let ball = document.createElement('div');
+            ball.classList.add('ball');
+            ball.style.left = Math.random() * 280 + 'px';
+            gameContainer.appendChild(ball);
+            balls.push({el: ball, top: 0});
+        }, 800);
+
+        const moveBalls = setInterval(() => {
+            balls.forEach((b,i) => {
+                b.top += 5;
+                b.el.style.top = b.top + 'px';
+                if(b.top > 380){
+                    gameContainer.removeChild(b.el);
+                    balls.splice(i,1);
+                }
+            });
+        }, 50);
+
+        setTimeout(() => {
+            clearInterval(spawnBall);
+            clearInterval(moveBalls);
+            gameContainer.style.display = 'none';
+            messageContainer.style.display = 'block';
+        }, 8000);
+
+    }, 4000);
+
+    // Pesan mengetik
+    const messageText = `Selamat ulang tahun Rajwa! 🎉
+Maaf telat beberapa hari, aku belum kasih hadiah apa-apa jadi aku buat ini aja...
+Semoga panjang umur, sehat selalu, dan semua hal baik datang ke kamu.
+-Dari Evan `;
+
+    showMessageBtn.addEventListener('click', () => {
+        card.style.opacity = 1;
+        card.style.transform = 'translateY(0)';
+        let i = 0;
+        typedMessage.textContent = '';
+        const typing = setInterval(() => {
+            typedMessage.textContent += messageText[i];
+            i++;
+            if(i >= messageText.length) {
+                clearInterval(typing);
+                logoutBtn.style.display = 'inline-block';
+            }
+        }, 50);
+        showMessageBtn.style.display = 'none';
+    });
+
+    logoutBtn.addEventListener('click', () => {
+        alert("Logout berhasil! Kembali ke halaman login.");
+        window.location.href ="index.html"; 
+    });
+</script>
+
 </body>
 </html>

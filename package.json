@@ -1,5 +1,6 @@
 {
   "name": "gabungan-sesi",
+  "type":"module",
   "version": "1.0.0",
   "description": "ini gabungan dari sesi cuy university semster 1",
   "main": "main.js",

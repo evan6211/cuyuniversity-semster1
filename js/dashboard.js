@@ -44,11 +44,43 @@ function zoomInVidio(){
 };
 
 // CEK UMUR & GENERATOR PASSWORD
-
+// FUNGSI CEK UMUR
 let tanggalLahirInput = document.getElementById("tanggalLahir");
 let cekUmurBtn = document.getElementById("cekUmurBtn");
 let hasilUmur = document.getElementById("hasilUmur");
 
-console.log(tanggalLahirInput)
-console.log(cekUmurBtn)
-console.log(hasilUmur)
+cekUmurBtn.addEventListener("click", async () => {
+    const tanggal = tanggalLahirInput.value;
+    if (!tanggal) {
+        hasilUmur.innerHTML = "silakan masukan tanggal lahir terlebih dahulu";
+        return;
+    }
+
+    try {
+    cekUmurBtn.disabled = true;
+    cekUmurBtn.textContent = "Memeriksa...";
+    const res = await fetch(`/api/cek-usia?tanggal=${encodeURIComponent(tanggal)}`);
+    const data = await res.json();
+
+    if (!res.ok) {
+      hasilUmur.textContent = data.error || "Terjadi kesalahan.";
+    } else {
+      hasilUmur.innerHTML = `
+        <p>hasil perhitungan umur kamu sekarang: ${data.umurTahun} tahun,${data.umurBulan} bulan, ${data.umurHari} hari.</p>
+        <p>kamu lahir pada hari ${data.hariLahir} dan kategori ${data.kategori}</p>
+      `;
+    }
+  } catch (err) {
+    hasilUmur.textContent = "Gagal menghubungi server.";
+  } finally {
+    cekUmurBtn.disabled = false;
+    cekUmurBtn.textContent = "Cek Umur";
+  }
+})
+
+// FUNGSI GENERATOR PASSWORD
+let panjangPasswordInput = document.getElementById("panjangPw");
+let hasilPassword = document.getElementById("hasilPw");
+let generatorPwBtn = document.getElementById("generatePasswordBtn");
+let savePwBtn  = document.getElementById("saveBtn");
+
