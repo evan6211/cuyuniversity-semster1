@@ -88,7 +88,7 @@
     <!-- navbar end -->
 
     <!-- content 1 -->
-    <div class="div-bor h-screen flex flex-col justify-center items-center gap-5 text-center">
+    <div class="div-bor min-h-screen flex flex-col justify-center items-center gap-5 text-center">
         <div class="text-4xl font-extrabold dark:text-white" id="welcome"></div>
         <div class="dark:text-white font-extrabold">
             <p>di website ini kamu bisa menemukan berbagai fitur fitur yang menyenangkan</p>
@@ -107,55 +107,397 @@
     </div>
     <!-- content 1 end -->
     <!-- content 2  -->
-    <div id="content2" class="div-bor h-screen flex flex-col text-wrap items-center ">
+    <div id="content2" class="div-bor min-h-screen flex flex-col text-wrap items-center ">
         <div class="mt-8 py-4 grid gap-10 sm:grid-cols-1 md:grid-cols-2">
             <!-- card 1 -->
             <div
-                class="card1 bg-white text-gray-900 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg p-6 sm:p-8  justify-center items-center flex flex-col gap-4 overflow-hidden transition hover:scale-110 hover:shadow-xl">CEK UMUR ANDA</h2>
+                class="card1 bg-white text-gray-900 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg p-6 sm:p-8  justify-center items-center flex flex-col gap-4 overflow-hidden transition hover:scale-110 hover:shadow-xl">
+                <h2>CEK UMUR ANDA</h2>
                 <label>
                     <span class="text-sm font-medium text-gray-700">masukan tahun lahir anda</span>
 
-                    <input type="date" id="tanggalLahir" class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
+                    <input type="date" id="tanggalLahir"
+                        class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
                 </label>
                 <a class="inline-block rounded-sm border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:ring-3 focus:outline-hidden"
                     type="button" id="cekUmurBtn">
                     Cek umur
                 </a>
-                <div id="hasilUmur" class="w-80 h-30 bg-gray-100 text-center flex flex-col justify-center items-center"></div>
+                <div id="hasilUmur" class="w-80 h-30 bg-gray-100 text-center flex flex-col justify-center items-center">
+                </div>
             </div>
             <!-- card 2 -->
-            <div class="card2 bg-white text-gray-900 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg p-6 sm:p-8  justify-center items-center flex flex-col gap-4 overflow-hidden transition hover:scale-110 hover:shadow-xl">
+            <div
+                class="card2 bg-white text-gray-900 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg p-6 sm:p-8  justify-center items-center flex flex-col gap-4 overflow-hidden transition hover:scale-110 hover:shadow-xl">
                 <h2 class="text-lg font-medium text-gray-900">Generate password</h2>
                 <label>
                     <span class="text-sm font-medium text-gray-700">masukkan panjang password</span>
 
-                    <input id="panjangPw" type="number"  class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
+                    <input id="panjangPw" type="number"
+                        class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
                 </label>
-                <input disabled type="text" id="hasilPw" class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
+                <input disabled type="text" id="hasilPw"
+                    class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
                 <a class="inline-block rounded-sm border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:ring-3 focus:outline-hidden"
-                   type="button" id="generatePasswordBtn">
+                    type="button" id="generatePasswordBtn">
                     Generate password
                 </a>
                 <a class="inline-block rounded-sm border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:ring-3 focus:outline-hidden"
-                   id="saveBtn">
+                    id="saveBtn">
                     Save password
                 </a>
             </div>
         </div>
-
     </div>
     <!-- content 2 end -->
 
     <!-- content 3  -->
-    <div class="h-screen div-bor text-wrap flex justify-center items-center">
-        <h1>MASIH PROSES TUNGGU UNTUK HAL MENARIK SELANJUTNYA</h1>
-    </div>
-     <!-- content  3 end  -->
+    <section class="min-h-screen text-wrap flex flex-col justify-center items-center">
+        <main class="mt-8 py-3 grid md:grid-cols-4 sm:grid-cols-1 gap-5 place-items-center">
+            <!-- Ruang Keluarga -->
+            <div class="flex flex-col justify-center items-center py-4 bg-white rounded-lg m-3">
+                <h1 class="text-center font-extrabold">RUANG KELUARGA</h1>
+                <div class="flex py-10 gap-10 px-15 ">
+                    <!-- lampu 1 -->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggel1" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 1 end -->
+                    <!-- lampu 2 -->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle2" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 2 end -->
+                    <!-- lampu 3-->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle3" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 3 end -->
+                </div>
+                <!-- toggle master -->
+                <div class="flex flex-col justify-center items-center gap-4 ">
+                    <h1 class="text-center font-extrabold">AKTIFKAN INI UNTUK MENGHIDUPKAN SEMUA</h1>
+                    <label for="AcceptConditions"
+                        class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                        <input type="checkbox" id="mastertoggle1" class="peer sr-only">
+
+                        <span
+                            class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                            </svg>
+                        </span>
+                    </label>
+                </div>
+                <!-- toggle master end -->
+            </div>
+            <!-- ruang keluarga end -->
+
+            <!-- Ruang Makan -->
+            <div class="flex flex-col justify-center items-center py-4 bg-white rounded-lg m-3">
+                <h1 class="text-center font-extrabold">RUANG MAKAN</h1>
+                <div class="flex py-10 gap-10 px-15">
+                    <!-- lampu 1 -->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 1 end -->
+                </div>
+            </div>
+            <!-- ruang makan end -->
+
+            <!-- ruang tidur -->
+            <div class="flex flex-col justify-center items-center py-4 bg-white rounded-lg m-3">
+                <h1 class="text-center font-extrabold">RUANG MAKAN</h1>
+                <div class="flex py-10 gap-10 px-15">
+                    <!-- lampu 1 -->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 1 end -->
+                    <!-- lampu 2-->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 2 end -->
+                </div>
+                <!-- toggle master -->
+                <div class="flex flex-col justify-center items-center gap-4 ">
+                    <h1 class="text-center font-extrabold">AKTIFKAN INI UNTUK MENGHIDUPKAN SEMUA</h1>
+                    <label for="AcceptConditions"
+                        class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                        <input type="checkbox" id="mastertoggle1" class="peer sr-only">
+
+                        <span
+                            class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                            </svg>
+                        </span>
+                    </label>
+                </div>
+                <!-- toggle master end -->
+            </div>
+            <!-- ruang tidur end -->
+
+            <!-- ruang tamu -->
+            <div class="flex flex-col justify-center items-center py-4 bg-white rounded-lg m-3">
+                <h1 class="text-center font-extrabold">RUANG MAKAN</h1>
+                <div class="flex flex-wrap justify-center py-10 gap-10 px-4">
+                    <!-- lampu 1 -->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 1 end -->
+                    <!-- lampu 2-->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 2 end -->
+                    <!-- lampu 3-->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 3 end -->
+                    <!-- lampu 4-->
+                    <div class="flex flex-col gap-2 items-center">
+                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
+                        <label for="AcceptConditions"
+                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                            <input type="checkbox" id="toggle4" class="peer sr-only">
+
+                            <span
+                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
+                                    </path>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- lampu 4 end -->
+                </div>
+                <!-- toggle master -->
+                <div class="flex flex-col justify-center items-center gap-4 ">
+                    <h1 class="text-center font-extrabold">AKTIFKAN INI UNTUK MENGHIDUPKAN SEMUA</h1>
+                    <label for="AcceptConditions"
+                        class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
+                        <input type="checkbox" id="mastertoggle1" class="peer sr-only">
+
+                        <span
+                            class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                            </svg>
+                        </span>
+                    </label>
+                </div>
+                <!-- toggle master end -->
+            </div>
+            <!-- ruang tamu end -->
+        </main>
+    </section>
+    <!-- content  3 end  -->
 
     <script src="./js/dashboard.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
-
 </html>
