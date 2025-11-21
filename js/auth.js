@@ -42,7 +42,7 @@ function onLogin() {
     if (user.role === "admin") {
       window.location.href = "./admin.html";
     } else if (user.role === "specialUser") {
-      window.location.href = "./special.html";
+      window.location.href = "./special12.html";
     } else {
       window.location.href = "./dashboard.html";
     }
