@@ -160,10 +160,10 @@
                 <div class="flex py-10 gap-10 px-15 ">
                     <!-- lampu 1 -->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif" id="lampuK1" />
+                        <label for="toggleK1"  
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggel1" class="peer sr-only">
+                            <input type="checkbox" class="peer sr-only" onchange="saklarK('toogle', 1)" id="toggleK1" >
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -184,10 +184,10 @@
                     <!-- lampu 1 end -->
                     <!-- lampu 2 -->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif" id="lampuK2" />
+                        <label for="toggleK2" 
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle2" class="peer sr-only">
+                            <input type="checkbox" class="peer sr-only "onchange="saklarK('toogle', 2)" id="toggleK2"  >
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -208,10 +208,10 @@
                     <!-- lampu 2 end -->
                     <!-- lampu 3-->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif" id="lampuK3"/>
+                        <label for="toggleK3" 
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle3" class="peer sr-only">
+                            <input type="checkbox" onchange="saklarK('toogle', 3)"  class="peer sr-only" id="toggleK3"  >
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -234,9 +234,9 @@
                 <!-- toggle master -->
                 <div class="flex flex-col justify-center items-center gap-4 ">
                     <h1 class="text-center font-extrabold">AKTIFKAN INI UNTUK MENGHIDUPKAN SEMUA</h1>
-                    <label for="AcceptConditions"
+                    <label for="MtoggleK"  
                         class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                        <input type="checkbox" id="mastertoggle1" class="peer sr-only">
+                        <input type="checkbox"  class="peer sr-only" id="MtoggleK"  onchange="saklarK('master', 0)"/>
 
                         <span
                             class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -262,10 +262,10 @@
                 <div class="flex py-10 gap-10 px-15">
                     <!-- lampu 1 -->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif" id="lampuM1" />
+                        <label for="toggle4" 
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
+                            <input type="checkbox" id="toggle4" class="peer sr-only" onchange="saklarM()">
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -290,14 +290,14 @@
 
             <!-- ruang tidur -->
             <div class="flex flex-col justify-center items-center py-4 bg-white rounded-lg m-3">
-                <h1 class="text-center font-extrabold">RUANG MAKAN</h1>
+                <h1 class="text-center font-extrabold">RUANG TIDUR</h1>
                 <div class="flex py-10 gap-10 px-15">
                     <!-- lampu 1 -->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif" id="lampuT1" />
+                        <label for="toggle5"
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
+                            <input type="checkbox" id="toggle5" class="peer sr-only" onchange="saklarT('toogle')">
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -318,10 +318,12 @@
                     <!-- lampu 1 end -->
                     <!-- lampu 2-->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif" id="lampuT2" />
+                        <label for="toggle6"
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
+                            <input type="checkbox" id="toggle6" class="peer sr-only" onchange="saklarT('toogle')">
+
+
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -344,9 +346,9 @@
                 <!-- toggle master -->
                 <div class="flex flex-col justify-center items-center gap-4 ">
                     <h1 class="text-center font-extrabold">AKTIFKAN INI UNTUK MENGHIDUPKAN SEMUA</h1>
-                    <label for="AcceptConditions"
+                    <label for="mastertoggle2"
                         class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                        <input type="checkbox" id="mastertoggle1" class="peer sr-only">
+                        <input type="checkbox" id="mastertoggle2" class="peer sr-only" onchange="saklarT('master')">
 
                         <span
                             class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -368,14 +370,14 @@
 
             <!-- ruang tamu -->
             <div class="flex flex-col justify-center items-center py-4 bg-white rounded-lg m-3">
-                <h1 class="text-center font-extrabold">RUANG MAKAN</h1>
-                <div class="flex flex-wrap justify-center py-10 gap-10 px-4">
+                <h1 class="text-center font-extrabold">RUANG TAMU</h1>
+                <div class="flex  justify-center py-10 gap-10 px-4">
                     <!-- lampu 1 -->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif"  id="lampuTM1" />
+                        <label for="toggle7"
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
+                            <input type="checkbox" id="toggle7" class="peer sr-only" onchange="saklarTM('toogle')">
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -396,10 +398,10 @@
                     <!-- lampu 1 end -->
                     <!-- lampu 2-->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif"  id="lampuTM2"/>
+                        <label for="toggle8"
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
+                            <input type="checkbox" id="toggle8" class="peer sr-only" onchange="saklarTM('toogle')">
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -420,10 +422,10 @@
                     <!-- lampu 2 end -->
                     <!-- lampu 3-->
                     <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
-                        <label for="AcceptConditions"
+                        <img src="assets/image/off.gif"   id="lampuTM3" />
+                        <label for="toggle9"
                             class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
+                            <input type="checkbox" id="toggle9" class="peer sr-only" onchange="saklarTM('toogle')">
 
                             <span
                                 class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -442,37 +444,13 @@
                         </label>
                     </div>
                     <!-- lampu 3 end -->
-                    <!-- lampu 4-->
-                    <div class="flex flex-col gap-2 items-center">
-                        <img src="assets/image/off.gif"  class="w-20 h-20 object-contain" />
-                        <label for="AcceptConditions"
-                            class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                            <input type="checkbox" id="toggle4" class="peer sr-only">
-
-                            <span
-                                class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="size-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12">
-                                    </path>
-                                </svg>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="size-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5">
-                                    </path>
-                                </svg>
-                            </span>
-                        </label>
-                    </div>
-                    <!-- lampu 4 end -->
                 </div>
                 <!-- toggle master -->
                 <div class="flex flex-col justify-center items-center gap-4 ">
                     <h1 class="text-center font-extrabold">AKTIFKAN INI UNTUK MENGHIDUPKAN SEMUA</h1>
-                    <label for="AcceptConditions"
+                    <label for="mastertoggle3"
                         class="group relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:transparent] has-checked:bg-green-500">
-                        <input type="checkbox" id="mastertoggle1" class="peer sr-only">
+                        <input type="checkbox" id="mastertoggle3" class="peer sr-only" onchange="saklarTM('master')">
 
                         <span
                             class="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block">
@@ -499,5 +477,6 @@
     <script src="js/auth.js"></script>
     <script src="js/utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="./js/lamp.js"></script>
 </body>
 </html>
