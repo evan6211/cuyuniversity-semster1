@@ -88,3 +88,55 @@ body{
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
 };
+
+/* css piano */
+
+.piano-container{
+    background-color:black;
+    width: 500px;
+    height: auto;
+
+}
+
+#note{
+    background-color: #333333;
+    display: flex;
+
+
+}
+
+.h1-piano{
+    color:white;
+    text-align:center;
+    padding-bottom:8rem;
+    text-shadow: rgba(0,0,0,0.3);
+    font-size: 30px;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.note-button{
+    background-color:white;
+    color:black;
+    border: 1px solid black;
+    width:100px;
+    height: 200px;
+    margin:10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* media query */
+
+@media (max-width:768px) {
+    .h1-piano{
+        font-size:20px;
+        padding-bottom: 7rem;
+    }
+
+    .piano-container{
+        width:370px;
+    }
+}
