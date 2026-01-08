@@ -140,3 +140,7 @@ body{
         width:370px;
     }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
