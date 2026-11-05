@@ -1,223 +1,745 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Selamat Ulang Tahun Rajwa</title>
+<meta name="theme-color" content="#f9c9dc">
+<title>A Little Story for Rajwa</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-        background: linear-gradient(135deg, #ff9ccf, #ffd6e0);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        overflow: hidden;
-        text-align: center;
-    }
-    #welcome {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 2.2rem;
-        color: #fff;
-        text-shadow: 1px 1px 5px #ff69b4;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+:root {
+    --pink: #f3a9c8;
+    --darkpink: #bd638e;
+    --light: #fff0f6;
+    --purple: #b9a1d9;
+    --text: #89536f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    background: #f9d5e4;
+    color: var(--text);
+}
+
+button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#world {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    min-height: 500px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, #fff5f8, transparent 40%),
+        linear-gradient(145deg, #fce3ed, #f5c4d9 55%, #e9c6eb);
+}
+
+#particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+    animation: rise linear infinite;
+    color: white;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0);
         opacity: 0;
-        transition: all 2s ease;
     }
-    #gameContainer {
-        display: none;
-        margin-top: 20px;
-        position: relative;
-        width: 300px;
-        height: 400px;
-        background: #fff1f5;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    }
-    .player {
-        width: 40px;
-        height: 40px;
-        background: #ff69b4;
-        position: absolute;
-        bottom: 10px;
-        left: 130px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .ball {
-        width: 20px;
-        height: 20px;
-        background: #ff1493;
-        position: absolute;
-        top: 0;
-        border-radius: 50%;
-    }
-    #messageContainer {
-        display: none;
-        margin-top: 30px;
-        text-align: center;
-    }
-    .card {
-        background: #fff;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        max-width: 400px;
-        margin: auto;
+    15% { opacity: .8; }
+    85% { opacity: .6; }
+    100% {
+        transform: translateY(-110vh) rotate(300deg);
         opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 2s, transform 2s;
     }
-    #typedMessage {
-        font-size: 1.2rem;
-        color: #ff1493;
-        min-height: 120px;
-        white-space: pre-wrap;
+}
+
+.scene {
+    position: absolute;
+    inset: 0;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.04);
+    transition: opacity .8s ease, transform .8s ease, visibility .8s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.content {
+    width: 100%;
+    max-width: 550px;
+}
+
+.small-text {
+    font-size: .75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--darkpink);
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 10vw, 5.7rem);
+    line-height: 1.12;
+    color: #bd638e;
+}
+
+h2 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    color: #bd638e;
+}
+
+.description {
+    font-size: .95rem;
+    line-height: 1.9;
+    max-width: 430px;
+    margin: 20px auto;
+    color: #96647e;
+}
+
+.emoji {
+    font-size: clamp(3rem, 10vw, 5rem);
+    margin: 20px 0;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+.title-animation {
+    animation: titleIn 1.2s ease both;
+}
+
+@keyframes titleIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+        filter: blur(8px);
     }
-    #gifContainer img {
-        width: 120px;
-        margin-top: 10px;
-        animation: bounce 1s infinite alternate;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
     }
-    @keyframes bounce {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-15px); }
+}
+
+.btn {
+    padding: 14px 29px;
+    border: 1px solid rgba(189,99,142,.3);
+    border-radius: 50px;
+    background: rgba(255,255,255,.5);
+    color: #a64f7d;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 15px;
+    font-size: .9rem;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px #bd638e25;
+}
+
+.btn-primary {
+    background: linear-gradient(110deg, #e99cbe, #c9a6dc);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #d98db3;
+}
+
+/* OPENING */
+
+.opening-flower {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: float 4s infinite;
+}
+
+.opening-subtitle {
+    margin-top: 20px;
+    color: #a36c88;
+    line-height: 1.8;
+}
+
+/* BIRTHDAY */
+
+.cake {
+    font-size: clamp(5rem, 18vw, 8rem);
+    animation: cake 2s ease-in-out infinite;
+    filter: drop-shadow(0 12px 15px #bc6a9825);
+}
+
+@keyframes cake {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.confetti {
+    position: absolute;
+    top: -20px;
+    animation: fall 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
     }
-    button {
-        margin-top: 15px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 10px;
-        background: #ff69b4;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
+}
+
+/* LETTER */
+
+.envelope {
+    width: 150px;
+    height: 105px;
+    margin: 30px auto;
+    background: #eaa5c3;
+    border-radius: 8px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    box-shadow: 0 15px 30px #bd638e30;
+    cursor: pointer;
+    animation: float 3s infinite;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-top: 58px solid #f4c2d7;
+    z-index: 1;
+}
+
+.envelope span {
+    position: relative;
+    z-index: 2;
+}
+
+.letter-paper {
+    display: none;
+    max-width: 470px;
+    width: 100%;
+    max-height: 65vh;
+    overflow-y: auto;
+    background: #fff9f6;
+    padding: 28px;
+    border-radius: 15px;
+    color: #81536b;
+    line-height: 1.9;
+    text-align: left;
+    box-shadow: 0 15px 50px #a15b7930;
+    white-space: pre-line;
+    animation: titleIn .8s ease;
+}
+
+.letter-paper.show {
+    display: block;
+}
+
+.letter-paper h2 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.letter-sign {
+    margin-top: 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    text-align: right;
+    color: #bd638e;
+}
+
+/* WISHES */
+
+.star-field {
+    display: flex;
+    justify-content: center;
+    gap: clamp(15px, 5vw, 35px);
+    margin: 40px auto;
+}
+
+.wish-star {
+    border: none;
+    background: transparent;
+    font-size: clamp(2.3rem, 8vw, 4rem);
+    cursor: pointer;
+    filter: drop-shadow(0 0 12px #fff);
+    animation: sparkle 2s ease-in-out infinite alternate;
+    transition: .3s;
+}
+
+.wish-star:nth-child(2) { animation-delay: .5s; }
+.wish-star:nth-child(3) { animation-delay: 1s; }
+
+.wish-star:hover {
+    transform: scale(1.35) rotate(15deg);
+}
+
+@keyframes sparkle {
+    from { opacity: .55; transform: scale(.9); }
+    to { opacity: 1; transform: scale(1.15); }
+}
+
+#wishMessage {
+    min-height: 90px;
+    max-width: 440px;
+    margin: auto;
+    color: #96647e;
+    line-height: 1.9;
+}
+
+/* END */
+
+.end-heart {
+    font-size: 4rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+/* PROGRESS */
+
+.progress {
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff9;
+    transition: .4s;
+}
+
+.dot.active {
+    width: 23px;
+    border-radius: 10px;
+    background: white;
+}
+
+.scene-counter {
+    position: absolute;
+    z-index: 10;
+    top: 22px;
+    right: 23px;
+    font-size: .75rem;
+    color: #a66d89;
+    letter-spacing: 2px;
+}
+
+/* MUSIC CONTROL */
+
+.music-btn {
+    position: absolute;
+    z-index: 15;
+    top: 17px;
+    left: 18px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bd638e44;
+    background: #ffffff70;
+    border-radius: 50%;
+    color: #a64f7d;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:480px) {
+    .scene {
+        padding: 22px;
     }
+
+    .description {
+        font-size: .88rem;
+    }
+
+    .letter-paper {
+        padding: 22px;
+        font-size: .88rem;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<div id="welcome">Selamat datang, Rajwa! Main game dulu yuk 🎉</div>
+<div id="world">
+    <div id="particles"></div>
 
-<div id="gameContainer">
-    <div class="player" id="player"></div>
-</div>
+    <button class="music-btn" id="musicBtn" aria-label="Putar musik">♫</button>
 
-<div id="messageContainer">
-    <div id="beforeMessage" style="font-size:1.5rem; color:#ff1493; margin-bottom:10px;">Yahh game-nya udah habis, ada pesan buat kamu nih 🎁</div>
-    <button id="showMessageBtn">Lihat Pesan</button>
-    <div class="card" id="card">
-        <div id="typedMessage"></div>
-        <div id="gifContainer">
-            <img src="assets/image/special.gif" alt="GIF Lucu">
+    <div class="scene-counter" id="counter">01 / 05</div>
+
+    <!-- SCENE 1 -->
+    <section class="scene active" id="scene1">
+        <div class="content">
+            <div class="opening-flower">🌸</div>
+            <p class="small-text">A little surprise for you</p>
+            <h1 class="title-animation">Hello,<br>Rajwa!</h1>
+            <p class="opening-subtitle">
+                Gimana harimu hari ini? Semoga menyenangkan yaa!
+                <br>beda gak tampilnya? semua ini di buat untukmu.
+            </p>
+            <button class="btn btn-primary next">
+                Let's Begin ✨
+            </button>
         </div>
-        <button id="logoutBtn" style="display:none;">Logout</button>
+    </section>
+
+    <!-- SCENE 2 -->
+    <section class="scene" id="scene2">
+        <div class="content">
+            <p class="small-text">Today is your special day</p>
+            <div class="cake">🎂</div>
+            <h1 class="title-animation">Happy Birthday!</h1>
+            <p class="description">
+                Selamat ulang tahun, Rajwa!
+                Semoga hari ini membawa banyak senyuman
+                dan menjadi awal dari hal-hal baik.
+            </p>
+            <button class="btn btn-primary next">
+                Continue the Story →
+            </button>
+        </div>
+    </section>
+
+    <!-- SCENE 3 -->
+    <section class="scene" id="scene3">
+        <div class="content">
+            <p class="small-text">Something from my heart</p>
+            <h2>A Little Letter</h2>
+
+            <div class="envelope" id="envelope">
+                <span>💌</span>
+            </div>
+
+            <p class="description" id="envelopeHint">
+                Ada sebuah pesan kecil.
+                Tekan amplop untuk membukanya.
+            </p>
+
+            <div class="letter-paper" id="letterPaper">
+                <h2>Dear Rajwa,</h2>
+                <div id="letterText">
+Selamat ulang tahun, Rajwa! 🎉
+
+Semoga panjang umur, sehat selalu, dimudahkan dalam segala urusannya, dan semoga PKL-nya berjalan lancar sampai selesai. Semoga setiap langkah yang kamu jalani selalu diberikan kemudahan, dan semua hal baik yang sedang kamu usahakan bisa menemukan jalannya.
+
+Semoga di usia yang baru ini ada banyak kebahagiaan, pengalaman berharga, dan kesempatan baik yang datang menghampirimu. Tetap semangat menjalani hari-harimu, jangan lupa bahagia, dan sukses terus untuk segala hal yang sedang kamu perjuangkan.
+
+Terima kasih sudah menjadi seseorang yang secara tidak langsung menginspirasiku untuk mengenal dan mempelajari banyak hal baru. Ada banyak hal yang mungkin tidak akan pernah aku temukan kalau bukan karena inspirasi yang datang darimu. Semoga kamu selalu dikelilingi hal-hal baik dan orang-orang yang juga membawa kebahagiaan dalam hidupmu.
+
+Sekali lagi, selamat ulang tahun! Semoga hari-harimu ke depan selalu dipenuhi hal-hal baik. 
+
+Terima kasih sudah menjadi seseorang yang menginspirasi banyak hal baik.</div>
+                <div class="letter-sign">— Dari Evan</div>
+            </div>
+
+            <button class="btn btn-primary next" id="letterNext" style="display:none">
+                Next Chapter →
+            </button>
+        </div>
+    </section>
+
+    <!-- SCENE 4 -->
+    <section class="scene" id="scene4">
+        <div class="content">
+            <p class="small-text">A sky full of wishes</p>
+            <h2>Make a Little Wish</h2>
+            <p class="description">
+                Ada tiga bintang yang menyimpan harapan.
+                Pilih satu dan temukan pesannya.
+            </p>
+
+            <div class="star-field">
+                <button class="wish-star" data-index="0" aria-label="Harapan pertama">✦</button>
+                <button class="wish-star" data-index="1" aria-label="Harapan kedua">✧</button>
+                <button class="wish-star" data-index="2" aria-label="Harapan ketiga">★</button>
+            </div>
+
+            <p id="wishMessage">
+                Your little wishes are waiting here...
+            </p>
+
+            <button class="btn btn-primary next">
+                One Last Thing →
+            </button>
+        </div>
+    </section>
+
+    <!-- SCENE 5 -->
+    <section class="scene" id="scene5">
+        <div class="content">
+            <div class="end-heart">🌷</div>
+            <p class="small-text">The end of this little story</p>
+            <h1>Until We Meet Again</h1>
+            <p class="description">
+                Mungkin ini hanya sebuah cerita kecil
+                di dalam layar, tetapi semoga pesan baiknya
+                bisa menemani harimu.
+
+                <br><br>
+                Sekali lagi, selamat ulang tahun, Rajwa.
+                Semoga bahagia selalu.
+            </p>
+
+            <p style="margin-top:25px;color:#bd638e;font-family:'Playfair Display';font-style:italic">
+                Made with care, by Evan ♡
+            </p>
+
+            <button class="btn" id="restart">
+                ↺ Replay the Story
+            </button>
+
+            <br>
+            <button class="btn" id="logoutBtn">
+                Logout
+            </button>
+        </div>
+    </section>
+
+    <div class="progress" id="progress">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
     </div>
 </div>
 
 <script>
-    const welcome = document.getElementById('welcome');
-    const gameContainer = document.getElementById('gameContainer');
-    const player = document.getElementById('player');
-    const messageContainer = document.getElementById('messageContainer');
-    const showMessageBtn = document.getElementById('showMessageBtn');
-    const card = document.getElementById('card');
-    const typedMessage = document.getElementById('typedMessage');
-    const logoutBtn = document.getElementById('logoutBtn');
 
-    // Animasi welcome
-    setTimeout(() => {
-        welcome.style.opacity = 1;
-    }, 500);
+// SCENE NAVIGATION
 
-    setTimeout(() => {
-        welcome.style.top = '20%';
-    }, 3000); // geser ke atas
+const scenes = [...document.querySelectorAll('.scene')];
+const dots = [...document.querySelectorAll('.dot')];
+const counter = document.getElementById('counter');
 
-    setTimeout(() => {
-        // tampilkan game
-        gameContainer.style.display = 'block';
-        welcome.style.display = 'none';
+let currentScene = 0;
 
-        let playerPos = 130;
-        let playerX = 130;
+function showScene(index) {
+    if (index < 0 || index >= scenes.length) return;
 
-        document.addEventListener('keydown', e => {
-            if(e.key === 'ArrowLeft' && playerPos > 0) playerPos -= 10;
-            if(e.key === 'ArrowRight' && playerPos < 260) playerPos += 10;
-            player.style.left = playerPos + 'px';
-        });
+    currentScene = index;
 
-        player.addEventListener('mousemove', e => {
-            const rect = gameContainer.getBoundingClientRect();
-            let x = e.clientX - rect.left - 20;
-            if(x < 0) x = 0;
-            if(x > 260) x = 260;
-            player.style.left = x + 'px';
-        });
+    scenes.forEach((scene, i) => {
+        scene.classList.toggle('active', i === index);
+    });
 
-        // Game bola jatuh
-        let balls = [];
-        const spawnBall = setInterval(() => {
-            let ball = document.createElement('div');
-            ball.classList.add('ball');
-            ball.style.left = Math.random() * 280 + 'px';
-            gameContainer.appendChild(ball);
-            balls.push({el: ball, top: 0});
-        }, 800);
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
 
-        const moveBalls = setInterval(() => {
-            balls.forEach((b,i) => {
-                b.top += 5;
-                b.el.style.top = b.top + 'px';
-                if(b.top > 380){
-                    gameContainer.removeChild(b.el);
-                    balls.splice(i,1);
-                }
-            });
-        }, 50);
+    counter.textContent =
+        String(index + 1).padStart(2, '0') +
+        ' / ' +
+        String(scenes.length).padStart(2, '0');
+}
+
+document.querySelectorAll('.next').forEach(button => {
+    button.addEventListener('click', () => {
+        showScene(currentScene + 1);
+    });
+});
+
+// PARTICLES
+
+const particles = document.getElementById('particles');
+const decorations = ['✦', '✧', '♡', '🌸', '·'];
+
+for (let i = 0; i < 35; i++) {
+    const particle = document.createElement('span');
+    particle.className = 'particle';
+    particle.textContent =
+        decorations[Math.floor(Math.random() * decorations.length)];
+
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.fontSize = (10 + Math.random() * 16) + 'px';
+    particle.style.animationDuration = (8 + Math.random() * 12) + 's';
+    particle.style.animationDelay = (-Math.random() * 15) + 's';
+
+    particles.appendChild(particle);
+}
+
+// BIRTHDAY CONFETTI
+
+const birthdayScene = document.getElementById('scene2');
+
+for (let i = 0; i < 16; i++) {
+    const confetti = document.createElement('span');
+    confetti.className = 'confetti';
+    confetti.textContent = ['✦', '♡', '🌸', '✨'][i % 4];
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.animationDuration = (4 + Math.random() * 5) + 's';
+    confetti.style.animationDelay = (-Math.random() * 8) + 's';
+    confetti.style.fontSize = '18px';
+
+    birthdayScene.appendChild(confetti);
+}
+
+// LETTER INTERACTION
+
+const envelope = document.getElementById('envelope');
+const letterPaper = document.getElementById('letterPaper');
+const envelopeHint = document.getElementById('envelopeHint');
+const letterNext = document.getElementById('letterNext');
+
+let letterOpened = false;
+
+envelope.addEventListener('click', () => {
+    if (letterOpened) return;
+
+    letterOpened = true;
+    envelope.style.display = 'none';
+    envelopeHint.style.display = 'none';
+    letterPaper.classList.add('show');
+    letterNext.style.display = 'inline-block';
+});
+
+// WISH INTERACTION
+
+const wishes = [
+    'Semoga kesehatan, ketenangan, dan kebahagiaan selalu menyertai setiap langkahmu. 🌷',
+
+    'Semoga semua impian yang sedang kamu perjuangkan semakin dekat menjadi kenyataan. ⭐',
+
+    'Semoga kamu selalu bertemu orang-orang baik dan menemukan banyak cerita indah dalam perjalananmu. 🌙'
+];
+
+const wishMessage = document.getElementById('wishMessage');
+
+document.querySelectorAll('.wish-star').forEach(star => {
+    star.addEventListener('click', () => {
+        const index = Number(star.dataset.index);
+
+        wishMessage.style.opacity = 0;
 
         setTimeout(() => {
-            clearInterval(spawnBall);
-            clearInterval(moveBalls);
-            gameContainer.style.display = 'none';
-            messageContainer.style.display = 'block';
-        }, 8000);
-
-    }, 4000);
-
-    // Pesan mengetik
-    const messageText = `Selamat ulang tahun Rajwa! 🎉
-Maaf telat ngucapinnya.. aku gak ada hadiah beneran, jadi aku buat ini aja...
-Semoga tahun ini jadi tahun terbaik buat kamu, sehat selalu yaa!.
--Dari Evan `;
-
-    showMessageBtn.addEventListener('click', () => {
-        card.style.opacity = 1;
-        card.style.transform = 'translateY(0)';
-        let i = 0;
-        typedMessage.textContent = '';
-        const typing = setInterval(() => {
-            typedMessage.textContent += messageText[i];
-            i++;
-            if(i >= messageText.length) {
-                clearInterval(typing);
-                logoutBtn.style.display = 'inline-block';
-            }
-        }, 50);
-        showMessageBtn.style.display = 'none';
+            wishMessage.textContent = wishes[index];
+            wishMessage.style.opacity = 1;
+        }, 250);
     });
+});
 
-    logoutBtn.addEventListener('click', () => {
-        alert("Logout berhasil! Kembali ke halaman login.");
-        window.location.href ="index.html"; 
-    });
+// RESTART
+
+document.getElementById('restart').addEventListener('click', () => {
+    letterOpened = false;
+    envelope.style.display = 'grid';
+    envelopeHint.style.display = 'block';
+    letterPaper.classList.remove('show');
+    letterNext.style.display = 'none';
+    wishMessage.textContent = 'Your little wishes are waiting here...';
+
+    showScene(0);
+});
+
+// MUSIC - OPTIONAL
+// Tambahkan file musik sendiri jika ingin digunakan.
+
+let audio = null;
+const musicBtn = document.getElementById('musicBtn');
+
+musicBtn.addEventListener('click', async () => {
+    if (!audio) {
+        audio = new Audio('assets/audio/aboutyou.mp3');
+        audio.loop = true;
+        audio.volume = 0.35;
+    }
+
+    try {
+        if (audio.paused) {
+            await audio.play();
+            musicBtn.textContent = '♫';
+        } else {
+            audio.pause();
+            musicBtn.textContent = '♪';
+        }
+    } catch (error) {
+        alert('File musik belum tersedia. Kamu bisa menambahkan musik nanti.');
+    }
+});
+
+// LOGOUT - TETAP MENGGUNAKAN MEKANISME LAMA
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    alert("Logout berhasil! Kembali ke halaman login.");
+    window.location.href = "index.html";
+});
+
 </script>
-
 </body>
 </html>
